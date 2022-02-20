@@ -3,7 +3,7 @@ using AGwent.Models.Others;
 
 namespace AGwent.Models.Factories.UnitCards.Factions.NorthernRealms
 {
-    public class YarpenZigrin : UnitCard
+    public sealed class YarpenZigrin : UnitCard
     {
         public YarpenZigrin()
         {

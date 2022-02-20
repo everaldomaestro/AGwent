@@ -3,7 +3,7 @@ using AGwent.Models.Others;
 
 namespace AGwent.Models.Factories.UnitCards.Neutrals
 {
-    public class GeraltOfRivia : UnitCard
+    public sealed class GeraltOfRivia : UnitCard
     {
         public GeraltOfRivia()
         {

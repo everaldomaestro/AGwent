@@ -3,7 +3,7 @@ using AGwent.Models.Others;
 
 namespace AGwent.Models.Factories.UnitCards.Factions.NorthernRealms
 {
-    public class KeiraMetz : UnitCard
+    public sealed class KeiraMetz : UnitCard
     {
         public KeiraMetz()
         {

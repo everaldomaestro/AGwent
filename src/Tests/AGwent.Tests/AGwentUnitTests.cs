@@ -85,20 +85,5 @@ namespace AGwent.Tests
             scorchP2.PlayCard(gwent, null, PlayerNumber.TWO);
             Assert.True(gwent.PlayerOne.Discard.Cards.Contains(vesemirP1));
         }
-
-        //[Fact]
-        //public void Test2()
-        //{
-        //    var geraltOfRivia = new GeraltOfRivia();
-        //    var clearWeather = new ClearWeather();
-        //    var vesemir = new Vesemir();
-
-        //    var factory = new CardFactory();
-        //    var cards = new List<Card>();
-        //    cards.Add(factory.CreateCard(geraltOfRivia));
-        //    cards.Add(factory.CreateCard(clearWeather));
-
-        //    cards.Add(vesemir);
-        //}
     }
 }

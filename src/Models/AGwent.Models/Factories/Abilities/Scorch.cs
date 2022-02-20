@@ -4,7 +4,7 @@ using AGwent.Models.Others;
 
 namespace AGwent.Models.Factories.Abilities
 {
-    public class Scorch : Ability
+    public sealed class Scorch : Ability
     {
         public Scorch(TypeCard typeCard)
         {

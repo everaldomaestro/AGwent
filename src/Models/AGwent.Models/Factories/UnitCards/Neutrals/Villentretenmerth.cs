@@ -3,7 +3,7 @@ using AGwent.Models.Others;
 
 namespace AGwent.Models.Factories.UnitCards.Neutrals
 {
-    public class Villentretenmerth : UnitCard
+    public sealed class Villentretenmerth : UnitCard
     {
         public Villentretenmerth()
         {

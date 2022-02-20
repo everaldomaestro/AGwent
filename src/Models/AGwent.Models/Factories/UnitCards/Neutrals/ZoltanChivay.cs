@@ -3,7 +3,7 @@ using AGwent.Models.Others;
 
 namespace AGwent.Models.Factories.UnitCards.Neutrals
 {
-    public class ZoltanChivay : UnitCard
+    public sealed class ZoltanChivay : UnitCard
     {
         public ZoltanChivay()
         {

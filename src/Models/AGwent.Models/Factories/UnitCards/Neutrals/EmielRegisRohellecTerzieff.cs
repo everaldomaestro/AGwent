@@ -3,7 +3,7 @@ using AGwent.Models.Others;
 
 namespace AGwent.Models.Factories.UnitCards.Neutrals
 {
-    public class EmielRegisRohellecTerzieff : UnitCard
+    public sealed class EmielRegisRohellecTerzieff : UnitCard
     {
         public EmielRegisRohellecTerzieff()
         {

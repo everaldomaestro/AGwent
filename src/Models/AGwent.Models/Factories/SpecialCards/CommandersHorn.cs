@@ -3,7 +3,7 @@ using AGwent.Models.Others;
 
 namespace AGwent.Models.Factories.SpecialCards
 {
-    public class CommandersHorn : SpecialCard
+    public sealed class CommandersHorn : SpecialCard
     {
         public CommandersHorn()
         {

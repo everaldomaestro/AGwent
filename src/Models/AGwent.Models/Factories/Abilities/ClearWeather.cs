@@ -3,7 +3,7 @@ using AGwent.Models.Others;
 
 namespace AGwent.Models.Factories.Abilities
 {
-    public class ClearWeather : Ability
+    public sealed class ClearWeather : Ability
     {
         public ClearWeather()
         {
@@ -15,7 +15,7 @@ namespace AGwent.Models.Factories.Abilities
         public override void RunAbility(Gwent game, Row? row, PlayerNumber player)
         {
             var weathers = game.BattleFieldWeather.Weaters.ToList();
-            game.BattleFieldWeather.RemoveAll();
+            game.BattleFieldWeather.RemoveAllSpecialCards();
 
             var cardsPlayOne = CardFactory.GetUnitCards(game.PlayerOne.BattleFieldRow.SelectMany(x => x.Cards).ToList())
                 .Where(w => w.AllowDamageAndDecoy()).ToList();

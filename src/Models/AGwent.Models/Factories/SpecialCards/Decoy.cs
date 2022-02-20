@@ -3,7 +3,7 @@ using AGwent.Models.Others;
 
 namespace AGwent.Models.Factories.SpecialCards
 {
-    public class Decoy : SpecialCard
+    public sealed class Decoy : SpecialCard
     {
         public Decoy()
         {

@@ -14,7 +14,7 @@ namespace AGwent.Models.Cards
         {
             if (this.Ability.GetType() == typeof(BitingFrost) || this.Ability.GetType() == typeof(ClearWeather))
             {
-                game.BattleFieldWeather.AddSpecialCard(this);
+                game.BattleFieldWeather.AddCard(this);
             }
             else
             {

@@ -3,7 +3,7 @@ using AGwent.Models.Others;
 
 namespace AGwent.Models.Factories.UnitCards.Factions.NorthernRealms
 {
-    public class Ves : UnitCard
+    public sealed class Ves : UnitCard
     {
         public Ves()
         {

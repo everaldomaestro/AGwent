@@ -3,7 +3,7 @@ using AGwent.Models.Others;
 
 namespace AGwent.Models.Factories.SpecialCards
 {
-    public class BitingFrost : SpecialCard
+    public sealed class BitingFrost : SpecialCard
     {
         public BitingFrost()
         {

@@ -3,7 +3,7 @@ using AGwent.Models.Others;
 
 namespace AGwent.Models.Factories.UnitCards.Factions.NorthernRealms
 {
-    public class SiegeTower : UnitCard
+    public sealed class SiegeTower : UnitCard
     {
         public SiegeTower()
         {

@@ -3,7 +3,7 @@ using AGwent.Models.Others;
 
 namespace AGwent.Models.Factories.UnitCards.Factions.NorthernRealms
 {
-    public class RedanianFootSoldier : UnitCard
+    public sealed class RedanianFootSoldier : UnitCard
     {
         public RedanianFootSoldier()
         {

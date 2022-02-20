@@ -4,7 +4,7 @@ using AGwent.Models.Others;
 
 namespace AGwent.Models.Factories.Abilities
 {
-    public class BitingFrost : Ability
+    public sealed class BitingFrost : Ability
     {
         public BitingFrost()
         {

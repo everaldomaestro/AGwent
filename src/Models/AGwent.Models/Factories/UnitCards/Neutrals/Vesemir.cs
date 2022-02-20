@@ -3,7 +3,7 @@ using AGwent.Models.Others;
 
 namespace AGwent.Models.Factories.UnitCards.Neutrals
 {
-    public class Vesemir : UnitCard
+    public sealed class Vesemir : UnitCard
     {
         public Vesemir()
         {

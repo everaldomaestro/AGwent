@@ -1,11 +1,13 @@
 ﻿using AGwent.Models.Cards;
 using AGwent.Models.Cards.Base;
+using AGwent.Models.Factories;
+using AGwent.Models.Game.Interfaces;
 using AGwent.Models.Others;
 using System.Diagnostics;
 
 namespace AGwent.Models.Game.Base
 {
-    public abstract class CardsAndMoves
+    public abstract class CardsAndMoves: ISpecialCardMoves, IUnitCardMoves
     {
         protected CardsAndMoves(StatusCard statusCard)
         {
@@ -33,7 +35,16 @@ namespace AGwent.Models.Game.Base
 
             var msg = $"{unitCard.Name} add to {StatusCard}.";
             Debug.WriteLine(msg);
-        } 
+        }
+
+        public void RemoveAllSpecialCards()
+        {
+            var specialCards = CardFactory.GetSpecialCards(this.Cards);
+            foreach (var weather in specialCards)
+            {
+                RemoveCard(weather);
+            }
+        }
 
         public void RemoveCard(SpecialCard specialCard)
         {

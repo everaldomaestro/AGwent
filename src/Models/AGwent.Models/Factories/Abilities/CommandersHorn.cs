@@ -4,7 +4,7 @@ using AGwent.Models.Others;
 
 namespace AGwent.Models.Factories.Abilities
 {
-    public class CommandersHorn : Ability
+    public sealed class CommandersHorn : Ability
     {
         public CommandersHorn(TypeCard typeCard)
         {

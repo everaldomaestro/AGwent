@@ -30,6 +30,11 @@ namespace AGwent.Models.Cards
             this.Ability?.RunAbility(game, row, player);
         }
 
+        public virtual Row[] SelectCard()
+        {
+            return this.Ranges;
+        }
+
         public bool AllowDamageAndDecoy()
         {
             return !Hero;
@@ -49,6 +54,6 @@ namespace AGwent.Models.Cards
                 StrengthValue = StrengthValueOriginal;
 
             Debug.WriteLine($"{Name} - {nameof(StrengthValueOriginal)}: {StrengthValueOriginal}, {nameof(StrengthValue)}: {StrengthValue}");
-        }
+        }        
     }
 }

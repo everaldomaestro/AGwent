@@ -3,18 +3,18 @@ using AGwent.Models.Others;
 
 namespace AGwent.Models.Factories.Abilities
 {
-    public sealed class Decoy : Ability
+    public sealed class Agile : Ability
     {
-        public Decoy()
+        public Agile()
         {
             Type = TypeCard.SPECIAL;
-            Name = "Decoy";
-            Description = "When you run out of peasants, decoys also make decent arrow fodder.";
+            Name = "Agile";
+            Description = "Can be placed in either the Close Combat or the Ranged Combat row. Cannot be moved once placed.";
         }
 
         public override void RunAbility(Gwent game, Row? row, PlayerNumber player)
         {
-            
+            //TODO: destacar opções de locais para jogar
         }
     }
 }

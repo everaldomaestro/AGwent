@@ -7,8 +7,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Cards\Interfaces\" />
-    <Folder Include="Game\Interfaces\" />
     <Folder Include="Others\Base\" />
     <Folder Include="Others\Interfaces\" />
   </ItemGroup>

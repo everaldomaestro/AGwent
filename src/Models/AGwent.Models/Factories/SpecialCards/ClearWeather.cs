@@ -3,7 +3,7 @@ using AGwent.Models.Others;
 
 namespace AGwent.Models.Factories.SpecialCards
 {
-    public class ClearWeather : SpecialCard
+    public sealed class ClearWeather : SpecialCard
     {
         public ClearWeather()
         {

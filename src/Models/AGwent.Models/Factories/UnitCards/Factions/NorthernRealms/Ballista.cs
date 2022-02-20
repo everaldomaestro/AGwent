@@ -3,7 +3,7 @@ using AGwent.Models.Others;
 
 namespace AGwent.Models.Factories.UnitCards.Factions.NorthernRealms
 {
-    public class Ballista : UnitCard
+    public sealed class Ballista : UnitCard
     {
         public Ballista()
         {

@@ -1,10 +1,11 @@
 ﻿using AGwent.Models.Cards;
+using AGwent.Models.Game.Interfaces;
 using AGwent.Models.Others;
 using System.Diagnostics;
 
 namespace AGwent.Models.Game
 {
-    public class BattleFieldWeather
+    public class BattleFieldWeather : ISpecialCardMoves
     {
         public BattleFieldWeather()
         {
@@ -15,7 +16,7 @@ namespace AGwent.Models.Game
         public StatusCard StatusCard { get; private set; }
         public IList<SpecialCard> Weaters { get; private set; }
 
-        public void AddSpecialCard(SpecialCard specialCard)
+        public void AddCard(SpecialCard specialCard)
         {
             specialCard.UpdateStatus(StatusCard);
             Weaters.Add(specialCard);
@@ -25,16 +26,16 @@ namespace AGwent.Models.Game
             Debug.WriteLine(msg);
         }
 
-        public void RemoveAll()
+        public void RemoveAllSpecialCards()
         {
             var weathers = this.Weaters.ToList();
             foreach (var weather in weathers)
             {
-                RemoveSpecialCard(weather);
+                RemoveCard(weather);
             }
         }
 
-        private void RemoveSpecialCard(SpecialCard specialCard)
+        public void RemoveCard(SpecialCard specialCard)
         {
             if (Weaters.Contains(specialCard))
             {
