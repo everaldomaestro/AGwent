@@ -21,7 +21,7 @@ namespace AGwent.Models.Cards
                 if (player == PlayerNumber.ONE)
                 {
                     game.PlayerOne.Hand.RemoveCard(this);
-                    if(row.HasValue)
+                    if (row.HasValue)
                         game.PlayerOne.BattleFieldRow.FirstOrDefault(x => x.Row == row).AddCard(this);
                 }
                 else
@@ -32,7 +32,7 @@ namespace AGwent.Models.Cards
                 }
             }
 
-            this.Ability.RunAbility(game, row, player);
+            this.Ability.RunAbility(game, player, this, row);
         }
     }
 }

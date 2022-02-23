@@ -10,7 +10,7 @@ namespace AGwent.Models.Factories.UnitCards.Factions.Monsters
         public Harpy()
         {
             Name = "Harpy";
-            Description = "";
+            Description = "There are many species of harpy, and all are kleptomaniacs.";
             StrengthValueOriginal = 2;
             StrengthValue = StrengthValueOriginal;
             Ranges = new Row[] { Row.CLOSE, Row.RANGED };

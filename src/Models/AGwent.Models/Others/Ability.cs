@@ -1,4 +1,5 @@
-﻿using AGwent.Models.Cards.Interfaces;
+﻿using AGwent.Models.Cards.Base;
+using AGwent.Models.Cards.Interfaces;
 using AGwent.Models.Game;
 
 namespace AGwent.Models.Others
@@ -10,7 +11,7 @@ namespace AGwent.Models.Others
         public string Name { get; protected set; }
         public string Description { get; protected set; }
 
-        public virtual void RunAbility(Gwent game, Row? row, PlayerNumber player)
+        public virtual void RunAbility(Gwent game, PlayerNumber player, Card card, Row? row)
         {
             throw new NotImplementedException();
         }

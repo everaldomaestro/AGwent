@@ -1,4 +1,5 @@
 ﻿#nullable disable
+using AGwent.Models.Cards.Base;
 using AGwent.Models.Game;
 using AGwent.Models.Others;
 
@@ -13,7 +14,7 @@ namespace AGwent.Models.Factories.Abilities
             Description = "Plus one to morale, minus three to hearing.";
         }
 
-        public override void RunAbility(Gwent game, Row? row, PlayerNumber player)
+        public override void RunAbility(Gwent game, PlayerNumber player, Card card, Row? row)
         {
             if (Type == TypeCard.SPECIAL)
             {

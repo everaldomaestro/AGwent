@@ -1,4 +1,5 @@
-﻿using AGwent.Models.Cards.Base;
+﻿#nullable disable
+using AGwent.Models.Cards.Base;
 using AGwent.Models.Game;
 using AGwent.Models.Others;
 using System.Diagnostics;
@@ -27,7 +28,7 @@ namespace AGwent.Models.Cards
                 game.PlayerTwo.BattleFieldRow.FirstOrDefault(x => x.Row == row).AddCard(this);
             }
 
-            this.Ability?.RunAbility(game, row, player);
+            this.Ability?.RunAbility(game, player, this, row);
         }
 
         public virtual Row[] SelectCard()

@@ -1,4 +1,5 @@
-﻿using AGwent.Models.Game;
+﻿using AGwent.Models.Cards.Base;
+using AGwent.Models.Game;
 using AGwent.Models.Others;
 
 namespace AGwent.Models.Factories.Abilities
@@ -12,7 +13,7 @@ namespace AGwent.Models.Factories.Abilities
             Description = "When you run out of peasants, decoys also make decent arrow fodder.";
         }
 
-        public override void RunAbility(Gwent game, Row? row, PlayerNumber player)
+        public override void RunAbility(Gwent game, PlayerNumber player, Card card, Row? row)
         {
             
         }
