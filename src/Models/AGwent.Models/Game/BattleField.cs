@@ -1,4 +1,6 @@
-﻿using AGwent.Models.Others;
+﻿#nullable disable
+using AGwent.Models.Cards.Base;
+using AGwent.Models.Others;
 
 namespace AGwent.Models.Game
 {
@@ -33,6 +35,12 @@ namespace AGwent.Models.Game
         public void SetPlayer(Player player)
         {
             Player = player;
+        }
+
+        public void PlayCard(Card card, Row row)
+        {
+            Hand.RemoveCard(card);
+            BattleFieldRow.FirstOrDefault(x => x.Row == row).AddCard(card);
         }
     }
 }

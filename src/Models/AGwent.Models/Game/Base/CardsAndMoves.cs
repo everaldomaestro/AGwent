@@ -1,13 +1,11 @@
-﻿using AGwent.Models.Cards;
-using AGwent.Models.Cards.Base;
+﻿using AGwent.Models.Cards.Base;
 using AGwent.Models.Factories;
-using AGwent.Models.Game.Interfaces;
 using AGwent.Models.Others;
 using System.Diagnostics;
 
 namespace AGwent.Models.Game.Base
 {
-    public abstract class CardsAndMoves: ISpecialCardMoves, IUnitCardMoves
+    public abstract class CardsAndMoves
     {
         protected CardsAndMoves(StatusCard statusCard)
         {
@@ -18,22 +16,12 @@ namespace AGwent.Models.Game.Base
         public StatusCard StatusCard { get; protected set; }
         public IList<Card> Cards { get; protected set; }
 
-        public void AddCard(SpecialCard specialCard)
+        public void AddCard(Card card)
         {
-            specialCard.UpdateStatus(StatusCard);
-            Cards.Add(specialCard);
+            card.UpdateStatus(StatusCard);
+            Cards.Add(card);
 
-            var msg = $"{specialCard.Name} add to {StatusCard}.";
-
-            Debug.WriteLine(msg);
-        }
-
-        public void AddCard(UnitCard unitCard)
-        {
-            unitCard.UpdateStatus(StatusCard);
-            Cards.Add(unitCard);
-
-            var msg = $"{unitCard.Name} add to {StatusCard}.";
+            var msg = $"{card.Name} add to {StatusCard}.";
             Debug.WriteLine(msg);
         }
 
@@ -46,26 +34,14 @@ namespace AGwent.Models.Game.Base
             }
         }
 
-        public void RemoveCard(SpecialCard specialCard)
+        public void RemoveCard(Card card)
         {
-            if (Cards.Contains(specialCard))
+            if (Cards.Contains(card))
             {
-                specialCard.UpdateStatus(StatusCard);
-                Cards.Remove(specialCard);
+                card.UpdateStatus(StatusCard);
+                Cards.Remove(card);
 
-                var msg = $"{specialCard.Name} remove from {StatusCard}.";
-                Debug.WriteLine(msg);
-            }
-        }
-
-        public void RemoveCard(UnitCard unitCard)
-        {
-            if (Cards.Contains(unitCard))
-            {
-                unitCard.UpdateStatus(StatusCard);
-                Cards.Remove(unitCard);
-
-                var msg = $"{unitCard.Name} remove from {StatusCard}.";
+                var msg = $"{card.Name} remove from {StatusCard}.";
                 Debug.WriteLine(msg);
             }
         }
