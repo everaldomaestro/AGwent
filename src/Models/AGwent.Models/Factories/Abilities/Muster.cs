@@ -17,41 +17,35 @@ namespace AGwent.Models.Factories.Abilities
 
         public override void RunAbility(Gwent game, PlayerNumber player, Card card, Row? row)
         {
+            var unitCard = (UnitCard)card;
+
             if (player == PlayerNumber.ONE)
             {
-                var hand = game.PlayerOne.Hand.Cards.Where(x => x.Name.Equals(card.Name) && x.StatusCard == StatusCard.HAND).Cast<UnitCard>().ToList();
-                var deck = game.PlayerOne.Deck.Cards.Where(x => x.Name.Equals(card.Name) && x.StatusCard == StatusCard.DECK).Cast<UnitCard>().ToList();
+                var hand = game.PlayerOne.Hand.Cards.Where(x => x.Name.Contains(card.Name.Split(' ')[0]) && x.Ability.GetType() == card.Ability.GetType() && x.StatusCard == StatusCard.HAND).Cast<UnitCard>().ToList();
+                var deck = game.PlayerOne.Deck.Cards.Where(x => x.Name.Contains(card.Name.Split(' ')[0]) && x.Ability.GetType() == card.Ability.GetType() && x.StatusCard == StatusCard.DECK).Cast<UnitCard>().ToList();
 
-                hand.ForEach(x => x.UpdateStatus(StatusCard.BATTLE));
-                deck.ForEach(x => x.UpdateStatus(StatusCard.BATTLE));
-                
-                var cards = new List<UnitCard>();
-                hand.ForEach(x => cards.Add(x));
-                deck.ForEach(x => cards.Add(x));
+                hand.ForEach(x => game.PlayerOne.Hand.RemoveCard(x));
+                deck.ForEach(x => game.PlayerOne.Deck.RemoveCard(x));
 
-                var unitCard = (UnitCard)card;
-                var area = unitCard.Ranges[0];
+                hand.ForEach(x => x.UpdateStatus(null));
+                deck.ForEach(x => x.UpdateStatus(null));
 
-                var battleFieldRow = game.PlayerOne.BattleFieldRow.FirstOrDefault(x => x.Row == area);
-                cards.ForEach(x=> battleFieldRow.AddCard(x));
+                hand.ForEach(x => x.PlayCard(game, x.Ranges[0], player));
+                deck.ForEach(x => x.PlayCard(game, x.Ranges[0], player));
             }
             else
             {
-                var hand = game.PlayerTwo.Hand.Cards.Where(x => x.Name.Equals(card.Name) && x.StatusCard == StatusCard.HAND).Cast<UnitCard>().ToList();
-                var deck = game.PlayerTwo.Deck.Cards.Where(x => x.Name.Equals(card.Name) && x.StatusCard == StatusCard.DECK).Cast<UnitCard>().ToList();
+                var hand = game.PlayerTwo.Hand.Cards.Where(x => x.Name.Contains(card.Name.Split(' ')[0]) && x.Ability.GetType() == card.Ability.GetType() && x.StatusCard == StatusCard.HAND).Cast<UnitCard>().ToList();
+                var deck = game.PlayerTwo.Deck.Cards.Where(x => x.Name.Contains(card.Name.Split(' ')[0]) && x.Ability.GetType() == card.Ability.GetType() && x.StatusCard == StatusCard.DECK).Cast<UnitCard>().ToList();
 
-                hand.ForEach(x => x.UpdateStatus(StatusCard.BATTLE));
-                deck.ForEach(x => x.UpdateStatus(StatusCard.BATTLE));
+                hand.ForEach(x => game.PlayerTwo.Hand.RemoveCard(x));
+                deck.ForEach(x => game.PlayerTwo.Deck.RemoveCard(x));
 
-                var cards = new List<UnitCard>();
-                hand.ForEach(x => cards.Add(x));
-                deck.ForEach(x => cards.Add(x));
+                hand.ForEach(x => x.UpdateStatus(null));
+                deck.ForEach(x => x.UpdateStatus(null));
 
-                var unitCard = (UnitCard)card;
-                var area = unitCard.Ranges[0];
-
-                var battleFieldRow = game.PlayerTwo.BattleFieldRow.FirstOrDefault(x => x.Row == area);
-                cards.ForEach(x => battleFieldRow.AddCard(x));
+                hand.ForEach(x => x.PlayCard(game, x.Ranges[0], player));
+                deck.ForEach(x => x.PlayCard(game, x.Ranges[0], player));
             }
         }
     }
