@@ -1,4 +1,5 @@
 ﻿#nullable disable
+using AGwent.Models.Cards;
 using AGwent.Models.Cards.Base;
 using AGwent.Models.Game;
 using AGwent.Models.Others;
@@ -46,17 +47,28 @@ namespace AGwent.Models.Factories.Abilities
             }
             else
             {
-                var maxValuePlayerTwo = CardFactory.GetUnitCards(game.GetAnotherPlayer(player).BattleFieldRow.FirstOrDefault(x => x.Row == row).Cards)
-                        .Where(x => x.AllowDamageAndDecoy()).ToList();
-                var maxValue = maxValuePlayerTwo.Any() ? maxValuePlayerTwo.Max(x => x.StrengthValue) : -1;
-                var cardsPlayerTwo = CardFactory.GetUnitCards(game.GetAnotherPlayer(player).BattleFieldRow.FirstOrDefault(x => x.Row == row).Cards)
-                    .Where(x => x.AllowDamageAndDecoy() && x.StrengthValue == maxValue).ToList();
+                var anotherPlayer = game.GetAnotherPlayer(player);
 
-                foreach (var cardP2 in cardsPlayerTwo)
-                {
-                    game.GetAnotherPlayer(player).BattleFieldRow.ToList().ForEach(x => x.RemoveCard(cardP2));
-                    game.GetAnotherPlayer(player).Discard.AddCard(cardP2);
-                }
+                var cards = anotherPlayer.BattleFieldRow
+                    .FirstOrDefault(x => x.Row == row).Cards;
+
+                var unitCards = CardFactory.GetCards<UnitCard>(cards);
+
+                var maxValueAnotherPlayer = unitCards
+                    .Where(x => x.AllowDamageAndDecoy())
+                    .ToList();
+
+                var maxValue = maxValueAnotherPlayer.Any()
+                    ? maxValueAnotherPlayer.Max(x => x.StrengthValue)
+                    : -1;
+
+                var cardsAnotherPlayer = unitCards
+                    .Where(x => x.AllowDamageAndDecoy()
+                        && x.StrengthValue == maxValue)
+                    .ToList();
+
+                foreach (var anotherPlayerCard in cardsAnotherPlayer)
+                    anotherPlayer.DiscardCard(anotherPlayerCard);
             }
         }
     }
