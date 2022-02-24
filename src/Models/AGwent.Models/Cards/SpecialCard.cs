@@ -18,18 +18,10 @@ namespace AGwent.Models.Cards
             }
             else
             {
-                if (player == PlayerNumber.ONE)
-                {
-                    game.PlayerOne.Hand.RemoveCard(this);
-                    if (row.HasValue)
-                        game.PlayerOne.BattleFieldRow.FirstOrDefault(x => x.Row == row).AddCard(this);
-                }
-                else
-                {
-                    game.PlayerTwo.Hand.RemoveCard(this);
-                    if (row.HasValue)
-                        game.PlayerTwo.BattleFieldRow.FirstOrDefault(x => x.Row == row).AddCard(this);
-                }
+                game.GetPlayer(player).Hand.RemoveCard(this);
+
+                if (row.HasValue)
+                    game.GetPlayer(player).BattleFieldRow.FirstOrDefault(x => x.Row == row).AddCard(this);
             }
 
             this.Ability.RunAbility(game, player, this, row);

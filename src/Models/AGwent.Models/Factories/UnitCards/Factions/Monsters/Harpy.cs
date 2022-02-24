@@ -21,16 +21,8 @@ namespace AGwent.Models.Factories.UnitCards.Factions.Monsters
 
         public override void PlayCard(Gwent game, Row? row, PlayerNumber player)
         {
-            if (player == PlayerNumber.ONE)
-            {
-                game.PlayerOne.Hand.RemoveCard(this);
-                game.PlayerOne.BattleFieldRow.FirstOrDefault(x => x.Row == row).AddCard(this);
-            }
-            else
-            {
-                game.PlayerTwo.Hand.RemoveCard(this);
-                game.PlayerTwo.BattleFieldRow.FirstOrDefault(x => x.Row == row).AddCard(this);
-            }
+            game.GetPlayer(player).Hand.RemoveCard(this);
+            game.GetPlayer(player).BattleFieldRow.FirstOrDefault(x => x.Row == row).AddCard(this);
         }
     }
 }

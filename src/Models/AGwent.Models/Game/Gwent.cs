@@ -16,5 +16,6 @@ namespace AGwent.Models.Game
         public BattleField PlayerTwo { get; private set; }
 
         public BattleField GetPlayer(PlayerNumber player) => player == PlayerNumber.ONE ? PlayerOne : PlayerTwo;
+        public BattleField GetAnotherPlayer(PlayerNumber player) => player == PlayerNumber.ONE ? PlayerTwo : PlayerOne;
     }
 }

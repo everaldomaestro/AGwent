@@ -17,8 +17,6 @@ namespace AGwent.Models.Cards
         public override void PlayCard(Gwent game, Row? row, PlayerNumber player)
         {
             game.GetPlayer(player).PlayCard(this, row.GetValueOrDefault());
-            //game.GetPlayer(player).Hand.RemoveCard(this);
-            //game.GetPlayer(player).BattleFieldRow.FirstOrDefault(x => x.Row == row).AddCard(this);
 
             this.Ability?.RunAbility(game, player, this, row);
         }

@@ -13,18 +13,11 @@ namespace AGwent.Models.Factories.Abilities
             Description = "Choose one card from your discard pile and play it instantly (no Heroes or Special Cards).";
         }
 
-        public override void RunAbility(Gwent game, PlayerNumber player, Card card, Row? row)
+        public override void RunAbility(Gwent game, PlayerNumber player, Card card, Row? row = null)
         {
-            if(player == PlayerNumber.ONE)
-            {
-                var cards = CardFactory.GetUnitCards(game.PlayerOne.Discard.Cards.ToList()).Where(x => x.AllowDamageAndDecoy());
-                //Todo: callback pra saber qual carta jogar
-            }
-            else
-            {
-                var cards = CardFactory.GetUnitCards(game.PlayerTwo.Discard.Cards.ToList()).Where(x => x.AllowDamageAndDecoy());
-                //Todo: callback pra saber qual carta jogar
-            }
+            var cards = CardFactory.GetUnitCards(game.GetPlayer(player).Discard.Cards.ToList()).Where(x => x.AllowDamageAndDecoy());
+
+            //Todo: callback pra saber qual carta jogar            
         }
     }
 }

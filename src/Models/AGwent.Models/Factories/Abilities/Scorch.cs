@@ -14,7 +14,7 @@ namespace AGwent.Models.Factories.Abilities
             Description = "These cards will kill the strongest card(s) on the battlefield, with some affecting all players and some with special conditions.";
         }
 
-        public override void RunAbility(Gwent game, PlayerNumber player, Card card, Row? row)
+        public override void RunAbility(Gwent game, PlayerNumber player, Card card, Row? row = null)
         {
             if (Type == TypeCard.SPECIAL)
             {
@@ -46,33 +46,16 @@ namespace AGwent.Models.Factories.Abilities
             }
             else
             {
-                if (player == PlayerNumber.ONE)
-                {
-                    var maxValuePlayerTwo = CardFactory.GetUnitCards(game.PlayerTwo.BattleFieldRow.FirstOrDefault(x => x.Row == row).Cards)
+                var maxValuePlayerTwo = CardFactory.GetUnitCards(game.GetAnotherPlayer(player).BattleFieldRow.FirstOrDefault(x => x.Row == row).Cards)
                         .Where(x => x.AllowDamageAndDecoy()).ToList();
-                    var maxValue = maxValuePlayerTwo.Any() ? maxValuePlayerTwo.Max(x => x.StrengthValue) : -1;
-                    var cardsPlayerTwo = CardFactory.GetUnitCards(game.PlayerTwo.BattleFieldRow.FirstOrDefault(x => x.Row == row).Cards)
-                        .Where(x => x.AllowDamageAndDecoy() && x.StrengthValue == maxValue).ToList();
+                var maxValue = maxValuePlayerTwo.Any() ? maxValuePlayerTwo.Max(x => x.StrengthValue) : -1;
+                var cardsPlayerTwo = CardFactory.GetUnitCards(game.GetAnotherPlayer(player).BattleFieldRow.FirstOrDefault(x => x.Row == row).Cards)
+                    .Where(x => x.AllowDamageAndDecoy() && x.StrengthValue == maxValue).ToList();
 
-                    foreach (var cardP2 in cardsPlayerTwo)
-                    {
-                        game.PlayerTwo.BattleFieldRow.ToList().ForEach(x => x.RemoveCard(cardP2));
-                        game.PlayerTwo.Discard.AddCard(cardP2);
-                    }
-                }
-                else
+                foreach (var cardP2 in cardsPlayerTwo)
                 {
-                    var maxValuePlayerOne = CardFactory.GetUnitCards(game.PlayerOne.BattleFieldRow.FirstOrDefault(x => x.Row == row).Cards)
-                        .Where(x => x.AllowDamageAndDecoy()).ToList();
-                    var maxValue = maxValuePlayerOne.Any() ? maxValuePlayerOne.Max(x => x.StrengthValue) : -1;
-                    var cardsPlayerOne = CardFactory.GetUnitCards(game.PlayerOne.BattleFieldRow.FirstOrDefault(x => x.Row == row).Cards)
-                        .Where(x => x.AllowDamageAndDecoy() && x.StrengthValue == maxValue).ToList();
-
-                    foreach (var cardP1 in cardsPlayerOne)
-                    {
-                        game.PlayerOne.BattleFieldRow.ToList().ForEach(x => x.RemoveCard(cardP1));
-                        game.PlayerOne.Discard.AddCard(cardP1);
-                    }
+                    game.GetAnotherPlayer(player).BattleFieldRow.ToList().ForEach(x => x.RemoveCard(cardP2));
+                    game.GetAnotherPlayer(player).Discard.AddCard(cardP2);
                 }
             }
         }

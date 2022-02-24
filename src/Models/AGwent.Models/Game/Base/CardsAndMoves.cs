@@ -1,5 +1,4 @@
 ﻿using AGwent.Models.Cards.Base;
-using AGwent.Models.Factories;
 using AGwent.Models.Others;
 using System.Diagnostics;
 
@@ -27,7 +26,7 @@ namespace AGwent.Models.Game.Base
 
         public void RemoveAllSpecialCards()
         {
-            var specialCards = CardFactory.GetSpecialCards(this.Cards);
+            var specialCards = this.Cards.Where(x => x.Type == TypeCard.SPECIAL).ToList();
             foreach (var weather in specialCards)
             {
                 RemoveCard(weather);

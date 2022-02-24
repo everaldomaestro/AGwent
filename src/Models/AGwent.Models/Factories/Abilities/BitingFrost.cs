@@ -14,7 +14,7 @@ namespace AGwent.Models.Factories.Abilities
             Description = "Place face up on the battlefield. Sets the strength of all close combat units to 1 for both players.";
         }
 
-        public override void RunAbility(Gwent game, PlayerNumber player, Card card, Row? row)
+        public override void RunAbility(Gwent game, PlayerNumber player, Card card, Row? row = null)
         {
             var cardsPlayerOne = CardFactory.GetUnitCards(game.PlayerOne.BattleFieldRow.FirstOrDefault(x => x.Row == Row.CLOSE).Cards)
                 .Where(x => x.AllowDamageAndDecoy()).ToList();

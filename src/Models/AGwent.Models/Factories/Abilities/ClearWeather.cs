@@ -13,7 +13,7 @@ namespace AGwent.Models.Factories.Abilities
             Description = "Discard after playing. Discard all Weather Cards currently on the battlefield.Their effects are cancelled.";
         }
 
-        public override void RunAbility(Gwent game,PlayerNumber player, Card card, Row? row)
+        public override void RunAbility(Gwent game,PlayerNumber player, Card card, Row? row = null)
         {
             var weathers = game.BattleFieldWeather.Weaters.ToList();
             game.BattleFieldWeather.RemoveAllSpecialCards();

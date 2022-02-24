@@ -11,7 +11,7 @@ namespace AGwent.Models.Others
         public string Name { get; protected set; }
         public string Description { get; protected set; }
 
-        public virtual void RunAbility(Gwent game, PlayerNumber player, Card card, Row? row)
+        public virtual void RunAbility(Gwent game, PlayerNumber player, Card card, Row? row = null)
         {
             throw new NotImplementedException();
         }

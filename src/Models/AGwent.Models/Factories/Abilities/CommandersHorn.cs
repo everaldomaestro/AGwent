@@ -14,19 +14,14 @@ namespace AGwent.Models.Factories.Abilities
             Description = "Plus one to morale, minus three to hearing.";
         }
 
-        public override void RunAbility(Gwent game, PlayerNumber player, Card card, Row? row)
+        public override void RunAbility(Gwent game, PlayerNumber player, Card card, Row? row = null)
         {
             if (Type == TypeCard.SPECIAL)
             {
             }
             else
             {
-                if (player == PlayerNumber.ONE)
-                {
-                }
-                else
-                {
-                }
+                //TODO
             }
         }
     }
