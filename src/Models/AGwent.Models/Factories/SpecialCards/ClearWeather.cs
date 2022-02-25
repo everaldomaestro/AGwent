@@ -9,7 +9,7 @@ namespace AGwent.Models.Factories.SpecialCards
         {
             Ability = new Abilities.ClearWeather();
             Name = Ability.Name;
-            Description = Ability.Description;
+            Description = "The sun's shinin', Dromle! The sun's shinin'! Maybe there's hope left after all...";
             Category = Category.NEUTRAL;
         }
     }

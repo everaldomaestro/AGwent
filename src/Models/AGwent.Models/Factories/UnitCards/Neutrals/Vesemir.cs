@@ -8,7 +8,7 @@ namespace AGwent.Models.Factories.UnitCards.Neutrals
         public Vesemir()
         {
             Name = "Vesemir";
-            Description = "";
+            Description = "If you're to be hanged, ask for water. Anything can happen before they fetch it.";
             StrengthValueOriginal = 6;
             StrengthValue = StrengthValueOriginal;
             Ranges = new Row[] { Row.CLOSE };

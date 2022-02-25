@@ -8,7 +8,7 @@ namespace AGwent.Models.Factories.Abilities
     {
         public Medic()
         {
-            Type = TypeCard.SPECIAL;
+            Type = TypeCard.UNIT;
             Name = "Medic";
             Description = "Choose one card from your discard pile and play it instantly (no Heroes or Special Cards).";
         }

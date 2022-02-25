@@ -3,13 +3,13 @@ using AGwent.Models.Others;
 
 namespace AGwent.Models.Factories.SpecialCards
 {
-    public sealed class Decoy : SpecialCard
+    public sealed class TorrentialRain : SpecialCard
     {
-        public Decoy()
+        public TorrentialRain()
         {
-            Ability = new Abilities.Decoy();
+            Ability = new Abilities.TorrentialRain();
             Name = Ability.Name;
-            Description = "When you have run out of peasants, decoys also make decent arrow fodder.";
+            Description = "Even the rain in this land smells like piss.";
             Category = Category.NEUTRAL;
         }
     }

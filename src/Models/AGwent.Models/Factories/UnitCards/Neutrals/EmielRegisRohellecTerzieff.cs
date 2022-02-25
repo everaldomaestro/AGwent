@@ -8,7 +8,7 @@ namespace AGwent.Models.Factories.UnitCards.Neutrals
         public EmielRegisRohellecTerzieff()
         {
             Name = "Emiel Regis Rohellec Terzieff";
-            Description = "";
+            Description = "Men, the polite ones, at least, would call me a monster. A blood-drinking freak.";
             StrengthValueOriginal = 5;
             StrengthValue = StrengthValueOriginal;
             Ranges = new Row[] { Row.CLOSE };

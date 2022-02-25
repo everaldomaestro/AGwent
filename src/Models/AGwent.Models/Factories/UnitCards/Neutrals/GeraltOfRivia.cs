@@ -8,7 +8,7 @@ namespace AGwent.Models.Factories.UnitCards.Neutrals
         public GeraltOfRivia()
         {
             Name = "Geralt of Rivia";
-            Description = "";
+            Description = "If that's what it takes to save the world, it's better to let that world die.";
             StrengthValueOriginal = 15;
             Ranges = new Row[] { Row.CLOSE };
             Hero = true;

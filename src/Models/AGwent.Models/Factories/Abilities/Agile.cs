@@ -6,7 +6,7 @@ namespace AGwent.Models.Factories.Abilities
     {
         public Agile()
         {
-            Type = TypeCard.SPECIAL;
+            Type = TypeCard.UNIT;
             Name = "Agile";
             Description = "Can be placed in either the Close Combat or the Ranged Combat row. Cannot be moved once placed.";
         }

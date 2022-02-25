@@ -4,13 +4,13 @@ using AGwent.Models.Others;
 
 namespace AGwent.Models.Factories.Abilities
 {
-    public sealed class Decoy : Ability
+    public sealed class MoraleBoost : Ability
     {
-        public Decoy()
+        public MoraleBoost()
         {
-            Type = TypeCard.SPECIAL;
-            Name = "Decoy";
-            Description = "When you run out of peasants, decoys also make decent arrow fodder.";
+            Type = TypeCard.UNIT;
+            Name = "Morale Boost";
+            Description = "Adds +1 to all units on the row (excluding itself).";
         }
 
         public override void RunAbility(Gwent game, PlayerNumber player, Card card, Row? row = null)

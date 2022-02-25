@@ -4,7 +4,7 @@ using AGwent.Models.Others;
 
 namespace AGwent.Models.Factories.UnitCards.Factions.Monsters
 {
-    public class Foglet : UnitCard
+    public sealed class Foglet : UnitCard
     {
         public Foglet()
         {

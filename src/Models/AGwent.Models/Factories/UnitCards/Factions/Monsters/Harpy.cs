@@ -5,7 +5,7 @@ using AGwent.Models.Others;
 
 namespace AGwent.Models.Factories.UnitCards.Factions.Monsters
 {
-    public class Harpy : UnitCard
+    public sealed class Harpy : UnitCard
     {
         public Harpy()
         {

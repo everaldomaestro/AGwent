@@ -8,7 +8,7 @@ namespace AGwent.Models.Factories.UnitCards.Factions.NorthernRealms
         public Trebuchet()
         {
             Name = "Trebuchet";
-            Description = "";
+            Description = "Castle won't batter itself down, now will it? Get them trebuchets rollin'!";
             StrengthValueOriginal = 6;
             StrengthValue = StrengthValueOriginal;
             Ranges = new Row[] { Row.SIEGE };

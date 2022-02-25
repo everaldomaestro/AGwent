@@ -4,13 +4,13 @@ using AGwent.Models.Others;
 
 namespace AGwent.Models.Factories.Abilities
 {
-    public sealed class Decoy : Ability
+    public sealed class TightBond : Ability
     {
-        public Decoy()
+        public TightBond()
         {
-            Type = TypeCard.SPECIAL;
-            Name = "Decoy";
-            Description = "When you run out of peasants, decoys also make decent arrow fodder.";
+            Type = TypeCard.UNIT;
+            Name = "Tight Bond";
+            Description = "Place next to a card with the same name to double the strength of both cards.";
         }
 
         public override void RunAbility(Gwent game, PlayerNumber player, Card card, Row? row = null)

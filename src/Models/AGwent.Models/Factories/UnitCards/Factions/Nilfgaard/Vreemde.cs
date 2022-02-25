@@ -3,13 +3,13 @@ using AGwent.Models.Others;
 
 namespace AGwent.Models.Factories.UnitCards.Factions.NorthernRealms
 {
-    public sealed class RedanianFootSoldier : UnitCard
+    public sealed class Vreemde : UnitCard
     {
-        public RedanianFootSoldier()
+        public Vreemde()
         {
-            Name = "Redanian Foot Soldier";
-            Description = "I've bled for Redania! I've killed for Redania... Dammit, I've even raped for Redania!";
-            StrengthValueOriginal = 1;
+            Name = "Vreemde";
+            Description = "Discipline is the Empire's greatest weapon";
+            StrengthValueOriginal = 2;
             StrengthValue = StrengthValueOriginal;
             Ranges = new Row[] { Row.CLOSE };
             Hero = false;

@@ -9,7 +9,7 @@ namespace AGwent.Models.Factories.SpecialCards
         {
             Ability = new Abilities.Scorch(this.Type);
             Name = Ability.Name;
-            Description = Ability.Description;
+            Description = "Pillars of flame turn the mightiest to ash. All others tremble in shock and awe.";
             Category = Category.NEUTRAL;
         }
     }

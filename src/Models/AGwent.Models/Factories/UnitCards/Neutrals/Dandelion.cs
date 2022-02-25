@@ -3,17 +3,18 @@ using AGwent.Models.Others;
 
 namespace AGwent.Models.Factories.UnitCards.Neutrals
 {
-    public sealed class ZoltanChivay : UnitCard
+    public sealed class Dandelion : UnitCard
     {
-        public ZoltanChivay()
+        public Dandelion()
         {
-            Name = "Zoltan Chivay";
-            Description = "Life without old mates and booze is like a woman without a rump.";
-            StrengthValueOriginal = 5;
+            Name = "Dandelion";
+            Description = "Dandelion, you're a cynic, a lecher, a whoremonger, a liar - and my best friend.";
+            StrengthValueOriginal = 2;
             StrengthValue = StrengthValueOriginal;
             Ranges = new Row[] { Row.CLOSE };
             Hero = false;
             Category = Category.NEUTRAL;
+            Ability = new Abilities.CommandersHorn(Type);
         }
     }
 }

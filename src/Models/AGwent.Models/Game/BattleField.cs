@@ -48,5 +48,11 @@ namespace AGwent.Models.Game
             BattleFieldRow.ToList().ForEach(x => x.RemoveCard(card));
             Discard.AddCard(card);
         }
+
+        public void GetCardFromDeck(Card card)
+        {
+            Deck.RemoveCard(card);
+            Hand.AddCard(card);
+        }
     }
 }

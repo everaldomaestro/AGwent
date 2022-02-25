@@ -10,7 +10,7 @@ namespace AGwent.Models.Factories.Abilities
     {
         public Muster()
         {
-            Type = TypeCard.SPECIAL;
+            Type = TypeCard.UNIT;
             Name = "Muster";
             Description = "Find any cards with the same name in your deck and play them instantly.";
         }

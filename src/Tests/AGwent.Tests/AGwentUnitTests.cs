@@ -1,9 +1,15 @@
 #nullable disable
+using AGwent.Models.Cards;
+using AGwent.Models.Cards.Base;
+using AGwent.Models.Factories;
 using AGwent.Models.Factories.SpecialCards;
 using AGwent.Models.Factories.UnitCards.Factions.NorthernRealms;
 using AGwent.Models.Factories.UnitCards.Neutrals;
 using AGwent.Models.Game;
 using AGwent.Models.Others;
+using System;
+using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using Xunit;
 
@@ -84,6 +90,36 @@ namespace AGwent.Tests
 
             scorchP2.PlayCard(gwent, null, PlayerNumber.TWO);
             Assert.True(gwent.PlayerOne.Discard.Cards.Contains(vesemirP1));
+        }
+
+        [Fact]
+        public void Test2()
+        {
+            var unitCards =
+                typeof(Card)
+                .Assembly.GetTypes()
+                .Where(t => t.IsSubclassOf(typeof(Card)) && !t.IsAbstract)
+                .Select(t => (Card)Activator.CreateInstance(t))
+                .ToList();
+
+            Assert.Equal(unitCards.Count, CardFactory.GetUnitCards(unitCards).Count + CardFactory.GetSpecialCards(unitCards).Count);
+            //Assert.Equal(unitCards.Count, (CardFactory.GetCards<UnitCard>(unitCards).Count + 1) + (CardFactory.GetCards<SpecialCard>(unitCards).Count + 1));
+
+            var stopwatch1 = new Stopwatch();
+            stopwatch1.Start();
+            for(int i = 0; i < 10; i++)
+                CardFactory.GetUnitCards(unitCards);
+            stopwatch1.Stop();
+            var t1 = stopwatch1.Elapsed;
+
+            var stopwatch2 = new Stopwatch();
+            stopwatch2.Start();
+            for (int i = 0; i < 10; i++)
+                CardFactory.GetCards<UnitCard>(unitCards);
+            stopwatch2.Stop();
+            var t2 = stopwatch2.Elapsed;
+
+            Assert.Equal(t1, t2);
         }
     }
 }

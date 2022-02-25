@@ -8,7 +8,7 @@ namespace AGwent.Models.Factories.UnitCards.Factions.NorthernRealms
         public Ballista()
         {
             Name = "Ballista";
-            Description = "";
+            Description = "Usually we give 'em female names. 'Like Jenny?' More like Bertha.";
             StrengthValueOriginal = 6;
             StrengthValue = StrengthValueOriginal;
             Ranges = new Row[] { Row.SIEGE };

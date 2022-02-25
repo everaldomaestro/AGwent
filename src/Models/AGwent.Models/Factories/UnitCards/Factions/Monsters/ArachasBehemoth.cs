@@ -4,7 +4,7 @@ using AGwent.Models.Others;
 
 namespace AGwent.Models.Factories.UnitCards.Factions.Monsters
 {
-    public class ArachasBehemoth : UnitCard
+    public sealed class ArachasBehemoth : UnitCard
     {
         public ArachasBehemoth()
         {

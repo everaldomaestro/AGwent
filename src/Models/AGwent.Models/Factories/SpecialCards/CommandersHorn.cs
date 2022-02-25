@@ -9,7 +9,7 @@ namespace AGwent.Models.Factories.SpecialCards
         {
             Ability = new Abilities.CommandersHorn(this.Type);
             Name = Ability.Name;
-            Description = Ability.Description;
+            Description = "Plus one to morale, minus three to hearing.";
             Category = Category.NEUTRAL;
         }
     }

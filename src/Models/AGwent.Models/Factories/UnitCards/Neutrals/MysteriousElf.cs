@@ -3,17 +3,18 @@ using AGwent.Models.Others;
 
 namespace AGwent.Models.Factories.UnitCards.Neutrals
 {
-    public sealed class TrissMerigold : UnitCard
+    public sealed class MysteriousElf : UnitCard
     {
-        public TrissMerigold()
+        public MysteriousElf()
         {
-            Name = "Triss Merigold";
-            Description = "I can take care of myself. Trust me";
-            StrengthValueOriginal = 7;
+            Name = "MysteriousElf";
+            Description = "You humans have... unusual tastes.";
+            StrengthValueOriginal = 0;
             StrengthValue = StrengthValueOriginal;
             Ranges = new Row[] { Row.CLOSE };
             Hero = true;
             Category = Category.NEUTRAL;
+            Ability = new Abilities.Spy();
         }
     }
 }

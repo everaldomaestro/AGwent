@@ -3,17 +3,18 @@ using AGwent.Models.Others;
 
 namespace AGwent.Models.Factories.UnitCards.Factions.NorthernRealms
 {
-    public sealed class RedanianFootSoldier : UnitCard
+    public sealed class Thaler : UnitCard
     {
-        public RedanianFootSoldier()
+        public Thaler()
         {
-            Name = "Redanian Foot Soldier";
-            Description = "I've bled for Redania! I've killed for Redania... Dammit, I've even raped for Redania!";
+            Name = "Thaler";
+            Description = "Fuck off! We aren't all ploughin' philanderers. Some of us have depth...";
             StrengthValueOriginal = 1;
             StrengthValue = StrengthValueOriginal;
-            Ranges = new Row[] { Row.CLOSE };
+            Ranges = new Row[] { Row.SIEGE };
             Hero = false;
             Category = Category.FACTION;
+            Ability = new Abilities.Spy();
         }
     }
 }

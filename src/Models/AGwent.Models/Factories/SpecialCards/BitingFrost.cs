@@ -9,7 +9,7 @@ namespace AGwent.Models.Factories.SpecialCards
         {
             Ability = new Abilities.BitingFrost();
             Name = Ability.Name;
-            Description = Ability.Description;
+            Description = "Best part about frost - bodies of the fallen don't rot so quickly.";
             Category = Category.NEUTRAL;
         }
     }
