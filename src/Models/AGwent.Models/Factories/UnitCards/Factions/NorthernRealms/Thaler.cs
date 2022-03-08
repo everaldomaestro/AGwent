@@ -15,6 +15,7 @@ namespace AGwent.Models.Factories.UnitCards.Factions.NorthernRealms
             Hero = false;
             Category = Category.FACTION;
             Ability = new Abilities.Spy();
+            Faction = new Factories.Factions.NorthernRealms();
         }
     }
 }

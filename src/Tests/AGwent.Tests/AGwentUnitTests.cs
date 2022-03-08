@@ -7,6 +7,8 @@ using AGwent.Models.Factories.UnitCards.Factions.NorthernRealms;
 using AGwent.Models.Factories.UnitCards.Neutrals;
 using AGwent.Models.Game;
 using AGwent.Models.Others;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Serialization;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -101,6 +103,17 @@ namespace AGwent.Tests
                 .Where(t => t.IsSubclassOf(typeof(Card)) && !t.IsAbstract)
                 .Select(t => (Card)Activator.CreateInstance(t))
                 .ToList();
+
+            DefaultContractResolver contractResolver = new DefaultContractResolver
+            {
+                NamingStrategy = new CamelCaseNamingStrategy()
+            };
+
+            var serializable = JsonConvert.SerializeObject(unitCards, new JsonSerializerSettings
+            {
+                ContractResolver = contractResolver,
+                Formatting = Formatting.Indented
+            });
 
             Assert.Equal(unitCards.Count, CardFactory.GetUnitCards(unitCards).Count + CardFactory.GetSpecialCards(unitCards).Count);
             //Assert.Equal(unitCards.Count, (CardFactory.GetCards<UnitCard>(unitCards).Count + 1) + (CardFactory.GetCards<SpecialCard>(unitCards).Count + 1));

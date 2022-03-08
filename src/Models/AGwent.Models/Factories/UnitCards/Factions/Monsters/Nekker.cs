@@ -16,6 +16,7 @@ namespace AGwent.Models.Factories.UnitCards.Factions.Monsters
             Hero = false;
             Category = Category.FACTION;
             Ability = new Abilities.Muster();
+            Faction = new Factories.Factions.Monsters();
         }
     }
 }

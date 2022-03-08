@@ -14,6 +14,7 @@ namespace AGwent.Models.Factories.UnitCards.Factions.NorthernRealms
             Ranges = new Row[] { Row.RANGED };
             Hero = false;
             Category = Category.FACTION;
+            Faction = new Factories.Factions.NorthernRealms();
         }
     }
 }
