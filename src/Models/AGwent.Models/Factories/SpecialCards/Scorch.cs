@@ -11,6 +11,7 @@ namespace AGwent.Models.Factories.SpecialCards
             Name = Ability.Name;
             Description = "Pillars of flame turn the mightiest to ash. All others tremble in shock and awe.";
             Category = Category.NEUTRAL;
+            Copy = 2;
         }
     }
 }

@@ -11,6 +11,7 @@ namespace AGwent.Models.Factories.SpecialCards
             Name = Ability.Name;
             Description = "When you have run out of peasants, decoys also make decent arrow fodder.";
             Category = Category.NEUTRAL;
+            Copy = 2;
         }
     }
 }

@@ -11,6 +11,7 @@ namespace AGwent.Models.Factories.SpecialCards
             Name = Ability.Name;
             Description = "The sun's shinin', Dromle! The sun's shinin'! Maybe there's hope left after all...";
             Category = Category.NEUTRAL;
+            Copy = 2;
         }
     }
 }

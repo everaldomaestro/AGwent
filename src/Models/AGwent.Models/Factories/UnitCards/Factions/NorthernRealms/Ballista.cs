@@ -15,6 +15,7 @@ namespace AGwent.Models.Factories.UnitCards.Factions.NorthernRealms
             Hero = false;
             Category = Category.FACTION;
             Faction = new Factories.Factions.NorthernRealms();
+            Count = 2;
         }
     }
 }

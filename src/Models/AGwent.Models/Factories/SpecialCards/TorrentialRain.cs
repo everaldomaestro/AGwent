@@ -11,6 +11,7 @@ namespace AGwent.Models.Factories.SpecialCards
             Name = Ability.Name;
             Description = "Even the rain in this land smells like piss.";
             Category = Category.NEUTRAL;
+            Copy = 2;
         }
     }
 }

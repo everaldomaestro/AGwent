@@ -11,6 +11,7 @@ namespace AGwent.Models.Factories.SpecialCards
             Name = Ability.Name;
             Description = "Best part about frost - bodies of the fallen don't rot so quickly.";
             Category = Category.NEUTRAL;
+            Copy = 2;
         }
     }
 }

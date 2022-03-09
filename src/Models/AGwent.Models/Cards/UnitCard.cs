@@ -45,6 +45,6 @@ namespace AGwent.Models.Cards
                 StrengthValue = StrengthValueOriginal;
 
             Debug.WriteLine($"{Name} - {nameof(StrengthValueOriginal)}: {StrengthValueOriginal}, {nameof(StrengthValue)}: {StrengthValue}");
-        }        
+        }
     }
 }

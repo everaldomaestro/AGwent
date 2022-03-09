@@ -15,6 +15,7 @@ namespace AGwent.Models.Factories.UnitCards.Factions.Scoiatael
             Hero = false;
             Category = Category.FACTION;
             Faction = new Factories.Factions.Scoiatael();
+            Count = 5;
         }
     }
 }

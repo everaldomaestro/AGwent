@@ -7,7 +7,7 @@ namespace AGwent.Models.Factories.UnitCards.Neutrals
     {
         public MysteriousElf()
         {
-            Name = "MysteriousElf";
+            Name = "Avallach";
             Description = "You humans have... unusual tastes.";
             StrengthValueOriginal = 0;
             StrengthValue = StrengthValueOriginal;

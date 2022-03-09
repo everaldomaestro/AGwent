@@ -15,8 +15,9 @@ namespace AGwent.Models.Factories.UnitCards.Factions.Monsters
             Ranges = new Row[] { Row.CLOSE };
             Hero = false;
             Category = Category.FACTION;
-            Ability = new Abilities.Muster();
             Faction = new Factories.Factions.Monsters();
+            Ability = new Abilities.Muster();
+            Count = 3;
         }
     }
 }

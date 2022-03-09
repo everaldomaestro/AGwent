@@ -11,6 +11,7 @@ namespace AGwent.Models.Factories.SpecialCards
             Name = Ability.Name;
             Description = "A good commander's dream... a bad one's horror.";
             Category = Category.NEUTRAL;
+            Copy = 2;
         }
     }
 }

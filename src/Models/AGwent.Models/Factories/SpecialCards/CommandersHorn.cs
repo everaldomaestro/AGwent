@@ -11,6 +11,7 @@ namespace AGwent.Models.Factories.SpecialCards
             Name = Ability.Name;
             Description = "Plus one to morale, minus three to hearing.";
             Category = Category.NEUTRAL;
+            Copy = 2;
         }
     }
 }

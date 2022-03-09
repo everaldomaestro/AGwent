@@ -9,7 +9,7 @@ namespace AGwent.Models.Factories.Abilities
         public ClearWeather()
         {
             Type = TypeCard.SPECIAL;
-            Name = "Clear Wheater";
+            Name = "Clear Weather";
             Description = "Discard after playing. Discard all Weather Cards currently on the battlefield.Their effects are cancelled.";
         }
 

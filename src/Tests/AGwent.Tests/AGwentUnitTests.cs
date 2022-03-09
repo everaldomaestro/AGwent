@@ -97,42 +97,46 @@ namespace AGwent.Tests
         [Fact]
         public void Test2()
         {
-            var unitCards =
-                typeof(Card)
-                .Assembly.GetTypes()
-                .Where(t => t.IsSubclassOf(typeof(Card)) && !t.IsAbstract)
-                .Select(t => (Card)Activator.CreateInstance(t))
-                .ToList();
+            //var unitCards =
+            //    typeof(Card)
+            //    .Assembly.GetTypes()
+            //    .Where(t => t.IsSubclassOf(typeof(Card)) && !t.IsAbstract)
+            //    .Select(t => (Card)Activator.CreateInstance(t))
+            //    .ToList();
+
+            var listCards = CardFactory.GenerateCards();
 
             DefaultContractResolver contractResolver = new DefaultContractResolver
             {
                 NamingStrategy = new CamelCaseNamingStrategy()
             };
 
-            var serializable = JsonConvert.SerializeObject(unitCards, new JsonSerializerSettings
+            var serializable = JsonConvert.SerializeObject(listCards, new JsonSerializerSettings
             {
                 ContractResolver = contractResolver,
                 Formatting = Formatting.Indented
             });
 
-            Assert.Equal(unitCards.Count, CardFactory.GetUnitCards(unitCards).Count + CardFactory.GetSpecialCards(unitCards).Count);
+            var stopwatch1 = new Stopwatch();
+
+            //Assert.Equal(unitCards.Count, CardFactory.GetUnitCards(unitCards).Count + CardFactory.GetSpecialCards(unitCards).Count);
             //Assert.Equal(unitCards.Count, (CardFactory.GetCards<UnitCard>(unitCards).Count + 1) + (CardFactory.GetCards<SpecialCard>(unitCards).Count + 1));
 
-            var stopwatch1 = new Stopwatch();
-            stopwatch1.Start();
-            for(int i = 0; i < 10; i++)
-                CardFactory.GetUnitCards(unitCards);
-            stopwatch1.Stop();
-            var t1 = stopwatch1.Elapsed;
+            //var stopwatch1 = new Stopwatch();
+            //stopwatch1.Start();
+            //for(int i = 0; i < 10; i++)
+            //    CardFactory.GetUnitCards(unitCards);
+            //stopwatch1.Stop();
+            //var t1 = stopwatch1.Elapsed;
 
-            var stopwatch2 = new Stopwatch();
-            stopwatch2.Start();
-            for (int i = 0; i < 10; i++)
-                CardFactory.GetCards<UnitCard>(unitCards);
-            stopwatch2.Stop();
-            var t2 = stopwatch2.Elapsed;
+            //var stopwatch2 = new Stopwatch();
+            //stopwatch2.Start();
+            //for (int i = 0; i < 10; i++)
+            //    CardFactory.GetCards<UnitCard>(unitCards);
+            //stopwatch2.Stop();
+            //var t2 = stopwatch2.Elapsed;
 
-            Assert.Equal(t1, t2);
+            //Assert.Equal(t1, t2);
         }
     }
 }

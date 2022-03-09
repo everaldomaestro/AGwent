@@ -16,8 +16,8 @@ namespace AGwent.Models.Factories.UnitCards.Factions.Monsters
             Ranges = new Row[] { Row.CLOSE, Row.RANGED };
             Hero = false;
             Category = Category.FACTION;
-            Ability = new Abilities.Agile();
             Faction = new Factories.Factions.Monsters();
+            Ability = new Abilities.Agile();
         }
 
         public override void PlayCard(Gwent game, Row? row, PlayerNumber player)
